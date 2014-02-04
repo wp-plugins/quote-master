@@ -11,9 +11,10 @@ This plugin gives you the ability to add, edit, and delete quotes and their auth
 == Description ==
 This plugin gives you the ability to add, edit, and delete quotes and their authors. You can show a random quote from your list by using the [mlw_quotes] shortcode on any page or post. You can also use the included Quote Master widget!
 
-*Version 6.0 is the first update to this plugin in 3 years. I have decided to rebuild the plugin from the ground-up. Please do not update to it if you have an older version.*
+Version 6.0 is the first update to this plugin in 3 years. I have decided to rebuild the plugin from the ground-up. Please do not update to it if you have an older version.
 
 Features include:
+
 * Add, edit, delete quotes
 * Include quote's author
 * Use shortcode on any post or page
