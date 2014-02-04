@@ -1,22 +1,46 @@
 === Quote Master ===
 Contributors: fpcorso
 Tags: quote, text, widget, shortcode, post
-Requires at least: 3.0
-Tested up to: 3.0.1
+Requires at least: 3.0.1
+Tested up to: 3.8.1
 Stable tag: 5.2.1
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-This adds a widget that displays random quotes as well as features new easy to use shortcode: [quotemaster] for your posts.  Also, this has the option to add random quotes to the admin dashboard.  Use option menu to configure.  Also Features more than 160 quotes.
+This plugin gives you the ability to add, edit, and delete quotes and their authors. You can show a random quote from your list by using the [mlw_quotes] shortcode on any page or post. You can also use the included Quote Master widget!
 
 == Description ==
-This adds a widget that displays random quotes as well as features new easy to use shortcode: [quotemaster] for your posts.  Also, this has the option to add random quotes to the admin dashboard.  Use option menu to configure.  Also Features more than 160 quotes.
+This plugin gives you the ability to add, edit, and delete quotes and their authors. You can show a random quote from your list by using the [mlw_quotes] shortcode on any page or post. You can also use the included Quote Master widget!
+
+*Version 6.0 is the first update to this plugin in 3 years. I have decided to rebuild the plugin from the ground-up. Please do not update to it if you have an older version.*
+
+Features include:
+* Add, edit, delete quotes
+* Include quote's author
+* Use shortcode on any post or page
+* Built-in widget
+* Includes 10 Quotes To Get You Started
+
+== Installation ==
+
+* Upload plugin dir to the `/wp-content/plugins/` directory
+* Activate the plugin through the 'Plugins' menu in WordPress
+
+== Frequently Asked Questions ==
+
+= I have an idea, how do I contact you? =
+Feel free to use the widget on the help page within the plugin or from the contact page at mylocalwebstop.com.
 
 == Changelog ==
 
-= Planned Features =
-*This Plugin will not receive any more updates.
+= 6.0 (February 4, 2014) =
+ * Rebuilt Plugin From Ground Up
+ * Initial New Version
+ 
+ 
+ 
+ 
+= Updates to original version =
 
-
-= Changlog =
 * 5.2.1 (October 17, 2010)
 	* Added Ability To Add Quotes
 	* Added Ability To Edit Quotes
@@ -137,24 +161,8 @@ This adds a widget that displays random quotes as well as features new easy to u
 * 0.1.1
 	* Initial upload
 	* 19 Quotes
+	
+== Upgrade Notice ==
 
-
-== Installation ==
-**Back-up database before upgrading**
-
-= Minimal Requirements =
-* WordPress: 3.0 or newer
-
-= Recommended Requirements =
-* WordPress: 3.0.1 or newer
-
-= Basic Installation =
-* Upload plugin dir to the `/wp-content/plugins/` directory
-* Activate the plugin through the 'Plugins' menu in WordPress
-* Set plugin parameters for your needs
-
-== Frequently Asked Questions ==
-
-= Is there a way I can make the quote remain the same for some time and not change with every page load? Is that possible? =
-
-In this latest version, you are able to edit to set a timer for how long you want the quote to stay the same.
+= 6.0 =
+This update rebuilds the plugin from the ground up. Please do not update to it if you are using an older version. You will lose your current quotes.
