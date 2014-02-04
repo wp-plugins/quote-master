@@ -6,7 +6,7 @@ Tested up to: 3.8.1
 Stable tag: 6.0
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-This plugin gives you the ability to add, edit, and delete quotes and their authors. You can show a random quote from your list by using the [mlw_quotes] shortcode on any page or post. You can also use the included Quote Master widget!
+This plugin gives you the ability to add, edit, and delete quotes and display them randomly.
 
 == Description ==
 This plugin gives you the ability to add, edit, and delete quotes and their authors. You can show a random quote from your list by using the [mlw_quotes] shortcode on any page or post. You can also use the included Quote Master widget!
