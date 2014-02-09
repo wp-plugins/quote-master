@@ -1,9 +1,9 @@
 === Quote Master ===
 Contributors: fpcorso
 Tags: quote, text, widget, shortcode, post
-Requires at least: 3.0.1
+Requires at least: 3.3
 Tested up to: 3.8.1
-Stable tag: 6.0
+Stable tag: 6.1.1
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 This plugin gives you the ability to add, edit, and delete quotes and display them randomly.
@@ -37,7 +37,9 @@ Feel free to use the widget on the help page within the plugin or from the conta
  * Rebuilt Plugin From Ground Up
  * Initial New Version
  
- 
+= 6.1.1 (February 8, 2014) =
+ * Added Category Page
+ * Added Categories To Quotes 
  
  
 = Updates to original version =
@@ -164,6 +166,9 @@ Feel free to use the widget on the help page within the plugin or from the conta
 	* 19 Quotes
 	
 == Upgrade Notice ==
+
+= 6.1.1 =
+This update adds categories to your quotes!
 
 = 6.0 =
 This update rebuilds the plugin from the ground up. Please do not update to it if you are using an older version. You will lose your current quotes.

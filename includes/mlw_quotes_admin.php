@@ -19,7 +19,9 @@ function mlw_quotes_generate_admin(){
 	{
 		$mlw_quotes_quote = $_POST["quote"];
 		$mlw_quotes_author = $_POST["author"];
-		$mlw_quotes_query_results = $wpdb->query( $wpdb->prepare( "INSERT INTO " . $mlw_quotes_table_name . " ( quote, author, category, category_id, deleted )  VALUES ( %s, %s, %s, %d, %d )", $mlw_quotes_quote, $mlw_quotes_author, " ", 0, 0 ) );
+		$mlw_quotes_category_id = $_POST["category"];
+		$mlw_quotes_category = $wpdb->get_var( $wpdb->prepare( "SELECT category FROM " . $wpdb->prefix . "mlw_quotes_cate WHERE category_id='%d'", $mlw_quotes_category_id ) );
+		$mlw_quotes_query_results = $wpdb->query( $wpdb->prepare( "INSERT INTO " . $mlw_quotes_table_name . " ( quote, author, category, category_id, deleted )  VALUES ( %s, %s, %s, %d, %d )", $mlw_quotes_quote, $mlw_quotes_author, $mlw_quotes_category, $mlw_quotes_category_id, 0 ) );
 		if ($mlw_quotes_query_results != false)
 		{
 			$mlw_quotes_hasAddedQuotes = true;		
@@ -36,7 +38,9 @@ function mlw_quotes_generate_admin(){
 		$mlw_quotes_edit_id = $_POST["edit_quote_id"];
 		$mlw_quotes_edit_quote = $_POST["edit_quote"];
 		$mlw_quotes_edit_author = $_POST["edit_author"];
-		$mlw_quotes_query_results = $wpdb->query( $wpdb->prepare( "UPDATE " . $mlw_quotes_table_name . " SET quote='%s', author='%s' WHERE quote_id='%d'", $mlw_quotes_edit_quote, $mlw_quotes_edit_author, $mlw_quotes_edit_id ) );
+		$mlw_quotes_edit_category_id = $_POST["edit_category"];
+		$mlw_quotes_edit_category = $wpdb->get_var( $wpdb->prepare( "SELECT category FROM " . $wpdb->prefix . "mlw_quotes_cate WHERE category_id='%d'", $mlw_quotes_edit_category_id ) );
+		$mlw_quotes_query_results = $wpdb->query( $wpdb->prepare( "UPDATE " . $mlw_quotes_table_name . " SET quote='%s', author='%s', category='%s', category_id='%d' WHERE quote_id='%d'", $mlw_quotes_edit_quote, $mlw_quotes_edit_author, $mlw_quotes_edit_category, $mlw_quotes_edit_category_id, $mlw_quotes_edit_id ) );
 		if ($mlw_quotes_query_results != false)
 		{
 			$mlw_quotes_hasEditedQuotes = true;	
@@ -67,6 +71,12 @@ function mlw_quotes_generate_admin(){
 	$mlw_quotes_sql .= "ORDER BY quote_id DESC";
 
 	$mlw_quotes_data = $wpdb->get_results($mlw_quotes_sql);	
+	
+	//Retrieve list of categories
+	$mlw_quotes_cate_sql = "SELECT * FROM " . $wpdb->prefix . "mlw_quotes_cate WHERE deleted='0'";
+	$mlw_quotes_cate_sql .= "ORDER BY category ASC";
+
+	$mlw_quotes_cate_data = $wpdb->get_results($mlw_quotes_cate_sql);	
 	?>
 	
 	
@@ -121,7 +131,7 @@ function mlw_quotes_generate_admin(){
 			var idHidden = document.getElementById("delete_quote_id");
 			idHidden.value = id;
 		};
-		function editQuote(id, quote, author){
+		function editQuote(id, quote, author, category_id){
 			$j("#edit_quote_dialog").dialog({
 				autoOpen: false,
 				show: 'blind',
@@ -137,9 +147,11 @@ function mlw_quotes_generate_admin(){
 			var idHidden = document.getElementById("edit_quote_id");
 			var quoteText = document.getElementById("edit_quote");
 			var authorText = document.getElementById("edit_author");
+			var cateSelect = document.getElementById("edit_category");
 			idHidden.value = id;
 			quoteText.value = quote;
 			authorText.value = author;
+			cateSelect.value = category_id;
 		};
 	</script>
 	
@@ -194,8 +206,9 @@ function mlw_quotes_generate_admin(){
 			if($alternate) $alternate = "";
 			else $alternate = " class=\"alternate\"";
 			$mlw_quotes_list .= "<tr{$alternate}>";
-			$mlw_quotes_list .= "<td><span style='font-size:16px;'>" . $mlw_quotes_info->quote ." </span><div><span style='color:green;font-size:12px;'><a onclick=\"editQuote('".$mlw_quotes_info->quote_id."','".$mlw_quotes_info->quote."','".$mlw_quotes_info->author."')\"href='#'>Edit</a> | <a onclick=\"deleteQuote('".$mlw_quotes_info->quote_id."')\"href='#'>Delete</a></span></div></td>";
+			$mlw_quotes_list .= "<td><span style='font-size:16px;'>" . $mlw_quotes_info->quote ." </span><div><span style='color:green;font-size:12px;'><a onclick=\"editQuote('".$mlw_quotes_info->quote_id."','".$mlw_quotes_info->quote."','".$mlw_quotes_info->author."','".$mlw_quotes_info->category_id."')\"href='#'>Edit</a> | <a onclick=\"deleteQuote('".$mlw_quotes_info->quote_id."')\"href='#'>Delete</a></span></div></td>";
 			$mlw_quotes_list .= "<td><span style='font-size:16px;'>" . $mlw_quotes_info->author ." </span></td>";
+			$mlw_quotes_list .= "<td><span style='font-size:16px;'>" . $mlw_quotes_info->category ." </span></td>";
 			$mlw_quotes_list .= "</tr>";
 		}
 	
@@ -203,6 +216,7 @@ function mlw_quotes_generate_admin(){
 			$mlw_quotes_display .= "<thead><tr>
 				<th>Quote</th>
 				<th>Author</th>
+				<th>Category</th>
 			</tr></thead>";
 			$mlw_quotes_display .= "<tbody id=\"the-list\">{$mlw_quotes_list}</tbody>";
 			$mlw_quotes_display .= "</table>";
@@ -230,6 +244,17 @@ function mlw_quotes_generate_admin(){
 				<tr valign="top">
 					<td><span style='font-weight:bold;'>Author</span></td>
 					<td><input type="text" name="author" value="" /></td>
+				</tr>
+				<tr>
+					<td><span style='font-weight:bold;'>Category</span></td>
+					<td><select name="category">
+							<?php
+							foreach($mlw_quotes_cate_data as $mlw_quotes_cate_info) {
+								echo "<option value='".$mlw_quotes_cate_info->category_id."'>".$mlw_quotes_cate_info->category."</option>";							
+							}
+							?>
+						</select>
+					</td>
 				</tr>
 			</table>
 			<?php
@@ -259,6 +284,17 @@ function mlw_quotes_generate_admin(){
 				<tr valign="top">
 					<td><span style='font-weight:bold;'>Author</span></td>
 					<td><input type="text" id="edit_author" name="edit_author" value="" /></td>
+				</tr>
+				<tr>
+					<td><span style='font-weight:bold;'>Category</span></td>
+					<td><select name="edit_category" id="edit_category">
+							<?php
+							foreach($mlw_quotes_cate_data as $mlw_quotes_cate_info) {
+								echo "<option value='".$mlw_quotes_cate_info->category_id."'>".$mlw_quotes_cate_info->category."</option>";							
+							}
+							?>
+						</select>
+					</td>
 				</tr>
 			</table>
 			<?php

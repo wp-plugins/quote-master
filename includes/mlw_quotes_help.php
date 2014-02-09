@@ -118,13 +118,13 @@ function mlw_quotes_wpss_mrt_meta_box2()
 	<div>
 	<table width='100%'>
 	<tr>
-	<td align='left'>6.0 (February 4, 2014)</td>
+	<td align='left'>6.1.1 (February 8, 2014)</td>
 	</tr>
 	<tr>
-		<td align='left'>* Rebuilt Plugin From Ground Up</td>
+		<td align='left'>* Added Category Page</td>
 	</tr>
 	<tr>
-		<td align='left'>* Initial New Version</td>
+		<td align='left'>* Added Categories To Quotes</td>
 	</tr>
 	</table>
 	</div>
@@ -145,7 +145,7 @@ function mlw_quotes_wpss_mrt_meta_box3()
 		$mlw_quotes_site_name = get_bloginfo('name');
 		$mlw_quotes_site_url = get_bloginfo('url');
 		$mlw_quotes_site_version = get_bloginfo('version');
-		$mlw_quotes_site_info = $mlw_site_name." ".$mlw_site_url." ".$mlw_site_version;
+		$mlw_quotes_site_info = $mlw_quotes_site_name." ".$mlw_quotes_site_url." ".$mlw_quotes_site_version;
 		if ($mlw_quotes_email_success == 'update')
 		{
 			$mlw_quotes_message = "Message from ".$mlw_quotes_user_name." at ".$mlw_quotes_user_email." It says: \n \n ".$mlw_quotes_user_message."\n Version: ".$mlw_quotes_version."\n User ".$mlw_quotes_current_user->display_name." from ".$mlw_quotes_current_user->user_email."\n Wordpress Info: ".$mlw_quotes_site_info;
