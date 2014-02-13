@@ -3,7 +3,7 @@ Contributors: fpcorso
 Tags: quote, text, widget, shortcode, post
 Requires at least: 3.3
 Tested up to: 3.8.1
-Stable tag: 6.1.1
+Stable tag: 6.2.1
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 This plugin gives you the ability to add, edit, and delete quotes and display them randomly.
@@ -11,11 +11,11 @@ This plugin gives you the ability to add, edit, and delete quotes and display th
 == Description ==
 This plugin gives you the ability to add, edit, and delete quotes and their authors. You can show a random quote from your list by using the [mlw_quotes] shortcode on any page or post. You can also use the included Quote Master widget!
 
-Version 6.0 is the first update to this plugin in 3 years. I have decided to rebuild the plugin from the ground-up. Please do not update to it if you have an older version.
-
 Features include:
 
 * Add, edit, delete quotes
+* Add, edit, delete categories
+* Show quotes only in selected category
 * Include quote's author
 * Use shortcode on any post or page
 * Built-in widget
@@ -33,14 +33,16 @@ Feel free to use the widget on the help page within the plugin or from the conta
 
 == Changelog ==
 
-= 6.0 (February 4, 2014) =
- * Rebuilt Plugin From Ground Up
- * Initial New Version
- 
+= 6.2.1 (February 13, 2014) =
+ * Added Ability To Show Quotes Only From Certain Category
+
 = 6.1.1 (February 8, 2014) =
  * Added Category Page
  * Added Categories To Quotes 
  
+= 6.0 (February 4, 2014) =
+ * Rebuilt Plugin From Ground Up
+ * Initial New Version
  
 = Updates to original version =
 

@@ -4,7 +4,7 @@
 /*
 Plugin Name: Quote Master
 Description: Use this plugin to add quotes to your website.
-Version: 6.1.1
+Version: 6.2.1
 Author: Frank Corso
 Author URI: http://www.mylocalwebstop.com/
 Plugin URI: http://www.mylocalwebstop.com/

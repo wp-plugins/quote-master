@@ -118,13 +118,10 @@ function mlw_quotes_wpss_mrt_meta_box2()
 	<div>
 	<table width='100%'>
 	<tr>
-	<td align='left'>6.1.1 (February 8, 2014)</td>
+	<td align='left'>6.2.1 (February 13, 2014)</td>
 	</tr>
 	<tr>
-		<td align='left'>* Added Category Page</td>
-	</tr>
-	<tr>
-		<td align='left'>* Added Categories To Quotes</td>
+		<td align='left'>* Added Ability To Show Quotes Only From Certain Category</td>
 	</tr>
 	</table>
 	</div>

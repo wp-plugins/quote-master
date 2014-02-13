@@ -190,12 +190,14 @@ function mlw_quotes_generate_category_page(){
 			else $alternate = " class=\"alternate\"";
 			$mlw_quotes_list .= "<tr{$alternate}>";
 			$mlw_quotes_list .= "<td><span style='font-size:16px;'>" . $mlw_quotes_info->category ." </span><div><span style='color:green;font-size:12px;'><a onclick=\"editCate('".$mlw_quotes_info->category_id."','".$mlw_quotes_info->category."')\"href='#'>Edit</a> | <a onclick=\"deleteCate('".$mlw_quotes_info->category_id."')\"href='#'>Delete</a></span></div></td>";
+			$mlw_quotes_list .= "<td>[mlw_quotes cate=".$mlw_quotes_info->category_id."]</td>";
 			$mlw_quotes_list .= "</tr>";
 		}
 	
 		$mlw_quotes_display .= "<table class=\"widefat\">";
 			$mlw_quotes_display .= "<thead><tr>
 				<th>Category</th>
+				<th>Shortcode</th>
 				</tr></thead>";
 			$mlw_quotes_display .= "<tbody id=\"the-list\">{$mlw_quotes_list}</tbody>";
 			$mlw_quotes_display .= "</table>";
