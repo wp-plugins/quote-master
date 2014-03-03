@@ -4,7 +4,7 @@
 /*
 Plugin Name: Quote Master
 Description: Use this plugin to add quotes to your website.
-Version: 6.2.1
+Version: 6.2.2
 Author: Frank Corso
 Author URI: http://www.mylocalwebstop.com/
 Plugin URI: http://www.mylocalwebstop.com/
@@ -48,9 +48,9 @@ function mlw_quotes_add_menu()
 {
 	if (function_exists('add_menu_page'))
 	{
-		add_menu_page('Quote Master', 'Quote Master', 8, __FILE__, 'mlw_quotes_generate_admin');
-		add_submenu_page(__FILE__, 'Categories', 'Categories', 8, 'mlw_quotes_category', 'mlw_quotes_generate_category_page');
-		add_submenu_page(__FILE__, 'Help', 'Help', 8, 'mlw_quotes_help', 'mlw_quotes_generate_help_page');
+		add_menu_page('Quote Master', 'Quote Master', 'moderate_comments', __FILE__, 'mlw_quotes_generate_admin');
+		add_submenu_page(__FILE__, 'Categories', 'Categories', 'moderate_comments', 'mlw_quotes_category', 'mlw_quotes_generate_category_page');
+		add_submenu_page(__FILE__, 'Help', 'Help', 'moderate_comments', 'mlw_quotes_help', 'mlw_quotes_generate_help_page');
 	}
 }
 ?>

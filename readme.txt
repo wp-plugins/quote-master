@@ -3,7 +3,7 @@ Contributors: fpcorso
 Tags: quote, text, widget, shortcode, post
 Requires at least: 3.3
 Tested up to: 3.8.1
-Stable tag: 6.2.1
+Stable tag: 6.2.2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 This plugin gives you the ability to add, edit, and delete quotes and display them randomly.
@@ -21,6 +21,8 @@ Features include:
 * Built-in widget
 * Includes 10 Quotes To Get You Started
 
+Be sure to check out all of our plugins in our Master Suite. Visit our plugins page for details: (http://mylocalwebstop.com/wordpress-plugins/)
+
 == Installation ==
 
 * Upload plugin dir to the `/wp-content/plugins/` directory
@@ -28,10 +30,19 @@ Features include:
 
 == Frequently Asked Questions ==
 
+= I need a lot of help setting up my quotes, what can you do to help? =
+We now offer a monthly premium support plan that offers priority response, access to a premium support-only forum, and includes 1-on-1 training! For details, visit our services page: (http://mylocalwebstop.com/services/)
+
+= Do you offer any 1-on-1 training to assist me in using this plugin? =
+We now offer an installation service that includes 1-on-1 training as well as a monthly support plan that includes 1-on-1 training. For details, visit our services page: (http://mylocalwebstop.com/services/)
+
 = I have an idea, how do I contact you? =
 Feel free to use the widget on the help page within the plugin or from the contact page at mylocalwebstop.com.
 
 == Changelog ==
+
+= 6.2.2 (March 2, 2014) =
+ * Minor Bug Fixes
 
 = 6.2.1 (February 13, 2014) =
  * Added Ability To Show Quotes Only From Certain Category
@@ -168,6 +179,9 @@ Feel free to use the widget on the help page within the plugin or from the conta
 	* 19 Quotes
 	
 == Upgrade Notice ==
+
+= 6.2.2 =
+This update fixes several minor bugs.
 
 = 6.1.1 =
 This update adds categories to your quotes!

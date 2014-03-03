@@ -202,6 +202,7 @@ function mlw_quotes_generate_admin(){
 		//Generate Table Of Quotes
 		$mlw_quotes_list = "";
 		$mlw_quotes_display = "";
+		$alternate = "";
 		foreach($mlw_quotes_data as $mlw_quotes_info) {
 			if($alternate) $alternate = "";
 			else $alternate = " class=\"alternate\"";
@@ -227,7 +228,7 @@ function mlw_quotes_generate_admin(){
 		<!--New Quote Dialog-->
 		<div id="new_quote_dialog" title="Add Quote" style="display:none;">
 			<?php
-			echo "<form action='" . $PHP_SELF . "' method='post'>";
+			echo "<form action='' method='post'>";
 			echo "<input type='hidden' name='add_quote_form' value='confirmation' />";
 			?>
 			<table class="wide" style="text-align: left; white-space: nowrap;">
@@ -266,7 +267,7 @@ function mlw_quotes_generate_admin(){
 		<!--Edit Quote Dialog-->
 		<div id="edit_quote_dialog" title="Edit Quote" style="display:none;">
 			<?php
-			echo "<form action='" . $PHP_SELF . "' method='post'>";
+			echo "<form action='' method='post'>";
 			echo "<input type='hidden' name='edit_quote_form' value='confirmation' />";
 			echo "<input type='hidden' id='edit_quote_id' name='edit_quote_id' value='' />";
 			?>
@@ -306,7 +307,7 @@ function mlw_quotes_generate_admin(){
 		<!--Delete Quote Dialog-->
 		<div id="delete_quote_dialog" title="Delete Quote" style="display:none;">
 			<?php
-			echo "<form action='" . $PHP_SELF . "' method='post'>";
+			echo "<form action='' method='post'>";
 			echo "<input type='hidden' name='delete_quote_form' value='confirmation' />";
 			echo "<input type='hidden' id='delete_quote_id' name='delete_quote_id' value='' />";
 			?>

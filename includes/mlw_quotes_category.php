@@ -1,6 +1,6 @@
 <?php
 /*
-This page creates the main dashboard for the Quiz Master Next plugin
+This page lists the categories
 Copyright 2014, My Local Webstop (email : fpcorso@mylocalwebstop.com)
 */
 
@@ -185,6 +185,7 @@ function mlw_quotes_generate_category_page(){
 		//Generate Table Of Categories
 		$mlw_quotes_list = "";
 		$mlw_quotes_display = "";
+		$alternate = "";
 		foreach($mlw_quotes_data as $mlw_quotes_info) {
 			if($alternate) $alternate = "";
 			else $alternate = " class=\"alternate\"";
@@ -208,7 +209,7 @@ function mlw_quotes_generate_category_page(){
 		<!--New Category Dialog-->
 		<div id="new_category_dialog" title="Add Category" style="display:none;">
 			<?php
-			echo "<form action='" . $PHP_SELF . "' method='post'>";
+			echo "<form action='' method='post'>";
 			echo "<input type='hidden' name='add_cate_form' value='confirmation' />";
 			?>
 			<table class="wide" style="text-align: left; white-space: nowrap;">
@@ -232,7 +233,7 @@ function mlw_quotes_generate_category_page(){
 		<!--Edit Category Dialog-->
 		<div id="edit_cate_dialog" title="Edit Category" style="display:none;">
 			<?php
-			echo "<form action='" . $PHP_SELF . "' method='post'>";
+			echo "<form action='' method='post'>";
 			echo "<input type='hidden' name='edit_cate_form' value='confirmation' />";
 			echo "<input type='hidden' id='edit_cate_id' name='edit_cate_id' value='' />";
 			?>
@@ -257,7 +258,7 @@ function mlw_quotes_generate_category_page(){
 		<!--Delete Category Dialog-->
 		<div id="delete_cate_dialog" title="Delete Category" style="display:none;">
 			<?php
-			echo "<form action='" . $PHP_SELF . "' method='post'>";
+			echo "<form action='' method='post'>";
 			echo "<input type='hidden' name='delete_cate_form' value='confirmation' />";
 			echo "<input type='hidden' id='delete_cate_id' name='delete_cate_id' value='' />";
 			?>

@@ -118,10 +118,10 @@ function mlw_quotes_wpss_mrt_meta_box2()
 	<div>
 	<table width='100%'>
 	<tr>
-	<td align='left'>6.2.1 (February 13, 2014)</td>
+	<td align='left'>6.2.2 (March 2, 2014)</td>
 	</tr>
 	<tr>
-		<td align='left'>* Added Ability To Show Quotes Only From Certain Category</td>
+		<td align='left'>* Minor Bug Fixes</td>
 	</tr>
 	</table>
 	</div>
@@ -227,10 +227,6 @@ function mlw_quotes_wpss_mrt_meta_box4()
 	</tr>
 	</table>
 	<p>Thank you to those who have contributed so far!</p>
-	<h3>Supporters</h3>
-	<ul>
-		<li>None</li>
-	</ul>
 	</div>
 	<?php
 }
