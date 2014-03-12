@@ -1,9 +1,10 @@
 === Quote Master ===
 Contributors: fpcorso
+Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=RTGYAETX36ZQJ
 Tags: quote, text, widget, shortcode, post
 Requires at least: 3.3
 Tested up to: 3.8.1
-Stable tag: 6.2.2
+Stable tag: 6.2.3
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 This plugin gives you the ability to add, edit, and delete quotes and display them randomly.
@@ -25,6 +26,18 @@ Be sure to check out all of our plugins in our Master Suite. Visit our plugins p
 
 == Installation ==
 
+We now offer an installation service to assist you in this process. We will install any or all of our plugins and spend up to 2 hours with you for consultaion and training. Visit our website for details.
+(http://mylocalwebstop.com/services/)
+
+**Or**
+
+* Navigate to Add New Plugin page within your WordPress
+* Search for Quote Master
+* Click Install Now link on the plugin and follow the prompts
+* Activate the plugin through the 'Plugins' menu in WordPress
+
+**Or**
+
 * Upload plugin dir to the `/wp-content/plugins/` directory
 * Activate the plugin through the 'Plugins' menu in WordPress
 
@@ -39,7 +52,15 @@ We now offer an installation service that includes 1-on-1 training as well as a 
 = I have an idea, how do I contact you? =
 Feel free to use the widget on the help page within the plugin or from the contact page at mylocalwebstop.com.
 
+== Screenshots ==
+
+1. Quote Master Admin Page
+2. Quote Master Widget
+
 == Changelog ==
+
+= 6.2.3 (March 12, 2014) =
+ * Minor Bug Fixes
 
 = 6.2.2 (March 2, 2014) =
  * Minor Bug Fixes
@@ -179,6 +200,9 @@ Feel free to use the widget on the help page within the plugin or from the conta
 	* 19 Quotes
 	
 == Upgrade Notice ==
+
+= 6.2.3 =
+This update fixes several minor bugs.
 
 = 6.2.2 =
 This update fixes several minor bugs.
