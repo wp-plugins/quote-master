@@ -2,9 +2,9 @@
 Contributors: fpcorso
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=RTGYAETX36ZQJ
 Tags: quote, text, widget, shortcode, post
-Requires at least: 3.3
+Requires at least: 3.5
 Tested up to: 3.8.1
-Stable tag: 6.2.3
+Stable tag: 6.2.4
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 This plugin gives you the ability to add, edit, and delete quotes and display them randomly.
@@ -27,7 +27,7 @@ Be sure to check out all of our plugins in our Master Suite. Visit our plugins p
 == Installation ==
 
 We now offer an installation service to assist you in this process. We will install any or all of our plugins and spend up to 2 hours with you for consultaion and training. Visit our website for details.
-(http://mylocalwebstop.com/services/)
+[My Local Webstop Plugin Installation](http://mylocalwebstop.com/product/plugin-installation/)
 
 **Or**
 
@@ -44,10 +44,10 @@ We now offer an installation service to assist you in this process. We will inst
 == Frequently Asked Questions ==
 
 = I need a lot of help setting up my quotes, what can you do to help? =
-We now offer a monthly premium support plan that offers priority response, access to a premium support-only forum, and includes 1-on-1 training! For details, visit our services page: (http://mylocalwebstop.com/services/)
+We now offer a premium support plan that offers priority response, priority feature requests, and includes 1-on-1 training! For details, visit our premium support page: [My Local Webstop Premium Support](http://mylocalwebstop.com/product/plugin-premium-support/)
 
 = Do you offer any 1-on-1 training to assist me in using this plugin? =
-We now offer an installation service that includes 1-on-1 training as well as a monthly support plan that includes 1-on-1 training. For details, visit our services page: (http://mylocalwebstop.com/services/)
+We now offer an installation service that includes 1-on-1 training as well as a monthly support plan that includes 1-on-1 training. For details, visit our services page: [My Local Webstop Services](http://mylocalwebstop.com/services/)
 
 = I have an idea, how do I contact you? =
 Feel free to use the widget on the help page within the plugin or from the contact page at mylocalwebstop.com.
@@ -58,6 +58,9 @@ Feel free to use the widget on the help page within the plugin or from the conta
 2. Quote Master Widget
 
 == Changelog ==
+
+= 6.2.4 (March 25, 2014) =
+ * Minor Bug Fixes
 
 = 6.2.3 (March 12, 2014) =
  * Minor Bug Fixes

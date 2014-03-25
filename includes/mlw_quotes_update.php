@@ -6,7 +6,7 @@ function mlw_quotes_update()
 {
 	
 	//Update this variable each update. This is what is checked when the plugin is deciding to run the upgrade script or not.
-	$data = "6.2.3";
+	$data = "6.2.4";
 	if ( ! get_option('mlw_quotes_version'))
 	{
 		add_option('mlw_quotes_version' , $data);
@@ -53,6 +53,10 @@ function mlw_quotes_update()
 			$results = $wpdb->query( $insert );
 		}
 		update_option('mlw_quotes_version' , $data);
+	}
+	if ( ! get_option('mlw_advert_shows'))
+	{
+		add_option('mlw_advert_shows' , 'true');
 	}
 }
 ?>

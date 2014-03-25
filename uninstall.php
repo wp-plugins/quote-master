@@ -14,4 +14,6 @@ global $wpdb;
 	$results = $wpdb->query( $sql );
 	
 	delete_option('mlw_quotes_version');
+	
+delete_option('mlw_advert_shows');
 ?>
