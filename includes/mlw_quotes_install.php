@@ -20,6 +20,8 @@ function mlw_quotes_activate()
 			
 			author TEXT NOT NULL,
 			
+			source TEXT NOT NULL,
+			
 			category TEXT NOT NULL,
 			
 			category_id INT NOT NULL,

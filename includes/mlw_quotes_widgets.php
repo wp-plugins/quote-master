@@ -84,7 +84,12 @@ class Mlw_Quotes_Quote_Widget extends WP_Widget {
 			break;
 		}
 		$mlw_quotes_display .= "<p>'".$mlw_quotes_data->quote."'</p>";
-		$mlw_quotes_display .= "<p>~".$mlw_quotes_data->author."</p>";
+		$mlw_quotes_display .= "<p>~ ".$mlw_quotes_data->author."<br />";
+		if ( $mlw_quotes_data->source != "" )
+		{
+			$mlw_quotes_display .= "Source: ".$mlw_quotes_data->source."";
+		}
+		$mlw_quotes_display .= "</p>";
 		echo $mlw_quotes_display;
    		echo '</div>';
    		echo $after_widget;

@@ -6,7 +6,7 @@ function mlw_quotes_update()
 {
 	
 	//Update this variable each update. This is what is checked when the plugin is deciding to run the upgrade script or not.
-	$data = "6.2.4";
+	$data = "6.3.1";
 	if ( ! get_option('mlw_quotes_version'))
 	{
 		add_option('mlw_quotes_version' , $data);
@@ -16,6 +16,7 @@ function mlw_quotes_update()
 		global $wpdb;
 		$table_name = $wpdb->prefix . "mlw_quotes_cate";
 
+		//Update 6.1.1
 		if($wpdb->get_var("SHOW TABLES LIKE '$table_name'") != $table_name) 
 	
 		{
@@ -51,6 +52,17 @@ function mlw_quotes_update()
 			"(category, deleted) " .
 	           	"VALUES ('Argument', 0)";
 			$results = $wpdb->query( $insert );
+		}
+		
+		$table_name = $wpdb->prefix . "mlw_quotes";
+		
+		//Update 6.3.1
+		if($wpdb->get_var("SHOW COLUMNS FROM ".$table_name." LIKE 'source'") != "source")
+		{
+			$sql = "ALTER TABLE ".$table_name." ADD source TEXT NOT NULL AFTER author";
+			$results = $wpdb->query( $sql );
+			$update_sql = "UPDATE ".$table_name." SET source=''";
+			$results = $wpdb->query( $update_sql );
 		}
 		update_option('mlw_quotes_version' , $data);
 	}

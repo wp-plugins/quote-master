@@ -19,9 +19,10 @@ function mlw_quotes_generate_admin(){
 	{
 		$mlw_quotes_quote = $_POST["quote"];
 		$mlw_quotes_author = $_POST["author"];
+		$mlw_quotes_source = $_POST["source"];
 		$mlw_quotes_category_id = $_POST["category"];
 		$mlw_quotes_category = $wpdb->get_var( $wpdb->prepare( "SELECT category FROM " . $wpdb->prefix . "mlw_quotes_cate WHERE category_id='%d'", $mlw_quotes_category_id ) );
-		$mlw_quotes_query_results = $wpdb->query( $wpdb->prepare( "INSERT INTO " . $mlw_quotes_table_name . " ( quote, author, category, category_id, deleted )  VALUES ( %s, %s, %s, %d, %d )", $mlw_quotes_quote, $mlw_quotes_author, $mlw_quotes_category, $mlw_quotes_category_id, 0 ) );
+		$mlw_quotes_query_results = $wpdb->query( $wpdb->prepare( "INSERT INTO " . $mlw_quotes_table_name . " ( quote, author, source, category, category_id, deleted )  VALUES ( %s, %s, %s, %s, %d, %d )", $mlw_quotes_quote, $mlw_quotes_author, $mlw_quotes_source, $mlw_quotes_category, $mlw_quotes_category_id, 0 ) );
 		if ($mlw_quotes_query_results != false)
 		{
 			$mlw_quotes_hasAddedQuotes = true;		
@@ -38,9 +39,10 @@ function mlw_quotes_generate_admin(){
 		$mlw_quotes_edit_id = $_POST["edit_quote_id"];
 		$mlw_quotes_edit_quote = $_POST["edit_quote"];
 		$mlw_quotes_edit_author = $_POST["edit_author"];
+		$mlw_quotes_edit_source = $_POST["edit_source"];
 		$mlw_quotes_edit_category_id = $_POST["edit_category"];
 		$mlw_quotes_edit_category = $wpdb->get_var( $wpdb->prepare( "SELECT category FROM " . $wpdb->prefix . "mlw_quotes_cate WHERE category_id='%d'", $mlw_quotes_edit_category_id ) );
-		$mlw_quotes_query_results = $wpdb->query( $wpdb->prepare( "UPDATE " . $mlw_quotes_table_name . " SET quote='%s', author='%s', category='%s', category_id='%d' WHERE quote_id='%d'", $mlw_quotes_edit_quote, $mlw_quotes_edit_author, $mlw_quotes_edit_category, $mlw_quotes_edit_category_id, $mlw_quotes_edit_id ) );
+		$mlw_quotes_query_results = $wpdb->query( $wpdb->prepare( "UPDATE " . $mlw_quotes_table_name . " SET quote='%s', author='%s', source='%s', category='%s', category_id='%d' WHERE quote_id='%d'", $mlw_quotes_edit_quote, $mlw_quotes_edit_author, $mlw_quotes_edit_source, $mlw_quotes_edit_category, $mlw_quotes_edit_category_id, $mlw_quotes_edit_id ) );
 		if ($mlw_quotes_query_results != false)
 		{
 			$mlw_quotes_hasEditedQuotes = true;	
@@ -131,7 +133,7 @@ function mlw_quotes_generate_admin(){
 			var idHidden = document.getElementById("delete_quote_id");
 			idHidden.value = id;
 		};
-		function editQuote(id, quote, author, category_id){
+		function editQuote(id, quote, author, source, category_id){
 			$j("#edit_quote_dialog").dialog({
 				autoOpen: false,
 				show: 'blind',
@@ -147,10 +149,12 @@ function mlw_quotes_generate_admin(){
 			var idHidden = document.getElementById("edit_quote_id");
 			var quoteText = document.getElementById("edit_quote");
 			var authorText = document.getElementById("edit_author");
+			var sourceText = document.getElementById("edit_source");
 			var cateSelect = document.getElementById("edit_category");
 			idHidden.value = id;
 			quoteText.value = quote;
 			authorText.value = author;
+			sourceText.value = source;
 			cateSelect.value = category_id;
 		};
 	</script>
@@ -196,37 +200,7 @@ function mlw_quotes_generate_admin(){
 			<?php
 		}
 		?>
-		<?php
-		if ( get_option('mlw_advert_shows') == 'true' )
-		{
-		?>
-			<style>
-				div.help_decide
-				{
-					display: block;
-					text-align:center;
-					letter-spacing: 1px;
-					margin: auto;
-					text-shadow: 0 1px 1px #000000;
-					background: #0d97d8;
-					border: 5px solid #106daa;
-					-moz-border-radius: 20px;
-					-webkit-border-radius: 20px;
-					-khtml-border-radius: 20px;
-					border-radius: 20px;
-					color: #FFFFFF;
-				}
-				div.help_decide a
-				{
-					color: yellow;
-				}		
-			</style>
-			<div class="help_decide">
-				<p>Need support or features? Check out our Plugin Add-On Store for premium support, installation services, and more! Visit our <a href="http://mylocalwebstop.com/shop/">Plugin Add-On Store</a>!</p>
-			</div>
-		<?php
-		}
-		?>
+		<?php echo mlw_quotes_show_adverts(); ?>
 		<button id="new_quote_button_two">Add Quote</button>
 		<?php
 		
@@ -238,8 +212,9 @@ function mlw_quotes_generate_admin(){
 			if($alternate) $alternate = "";
 			else $alternate = " class=\"alternate\"";
 			$mlw_quotes_list .= "<tr{$alternate}>";
-			$mlw_quotes_list .= "<td><span style='font-size:16px;'>" . $mlw_quotes_info->quote ." </span><div><span style='color:green;font-size:12px;'><a onclick=\"editQuote('".$mlw_quotes_info->quote_id."','".$mlw_quotes_info->quote."','".$mlw_quotes_info->author."','".$mlw_quotes_info->category_id."')\"href='#'>Edit</a> | <a onclick=\"deleteQuote('".$mlw_quotes_info->quote_id."')\"href='#'>Delete</a></span></div></td>";
+			$mlw_quotes_list .= "<td><span style='font-size:16px;'>" . $mlw_quotes_info->quote ." </span><div><span style='color:green;font-size:12px;'><a onclick=\"editQuote('".$mlw_quotes_info->quote_id."','".$mlw_quotes_info->quote."','".$mlw_quotes_info->author."','".$mlw_quotes_info->source."','".$mlw_quotes_info->category_id."')\"href='#'>Edit</a> | <a onclick=\"deleteQuote('".$mlw_quotes_info->quote_id."')\"href='#'>Delete</a></span></div></td>";
 			$mlw_quotes_list .= "<td><span style='font-size:16px;'>" . $mlw_quotes_info->author ." </span></td>";
+			$mlw_quotes_list .= "<td><span style='font-size:16px;'>" . $mlw_quotes_info->source ." </span></td>";
 			$mlw_quotes_list .= "<td><span style='font-size:16px;'>" . $mlw_quotes_info->category ." </span></td>";
 			$mlw_quotes_list .= "</tr>";
 		}
@@ -248,6 +223,7 @@ function mlw_quotes_generate_admin(){
 			$mlw_quotes_display .= "<thead><tr>
 				<th>Quote</th>
 				<th>Author</th>
+				<th>Source</th>
 				<th>Category</th>
 			</tr></thead>";
 			$mlw_quotes_display .= "<tbody id=\"the-list\">{$mlw_quotes_list}</tbody>";
@@ -271,11 +247,15 @@ function mlw_quotes_generate_admin(){
 				</tr>
 				<tr valign="top">
 					<td><span style='font-weight:bold;'>Quote</span></td>
-					<td><input type="text" name="quote" value="" /></td>
+					<td><textarea name="quote" style="width: 500px; height: 150px;"></textarea></td>
 				</tr>
 				<tr valign="top">
 					<td><span style='font-weight:bold;'>Author</span></td>
 					<td><input type="text" name="author" value="" /></td>
+				</tr>
+				<tr valign="top">
+					<td><span style='font-weight:bold;'>Source</span></td>
+					<td><input type="text" name="source" value="" /></td>
 				</tr>
 				<tr>
 					<td><span style='font-weight:bold;'>Category</span></td>
@@ -311,11 +291,15 @@ function mlw_quotes_generate_admin(){
 				</tr>
 				<tr valign="top">
 					<td><span style='font-weight:bold;'>Quote</span></td>
-					<td><input type="text" id="edit_quote" name="edit_quote" value="" /></td>
+					<td><textarea name="edit_quote" id="edit_quote" style="width: 500px; height: 150px;"></textarea></td>
 				</tr>
 				<tr valign="top">
 					<td><span style='font-weight:bold;'>Author</span></td>
 					<td><input type="text" id="edit_author" name="edit_author" value="" /></td>
+				</tr>
+				<tr>
+					<td><span style='font-weight:bold;'>Source</span></td>
+					<td><input type="text" id="edit_source" name="edit_source" value="" /></td>
 				</tr>
 				<tr>
 					<td><span style='font-weight:bold;'>Category</span></td>
