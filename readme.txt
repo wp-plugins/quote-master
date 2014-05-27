@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_i
 Tags: quote, text, widget, shortcode, post
 Requires at least: 3.5
 Tested up to: 3.9.1
-Stable tag: 6.3.1
+Stable tag: 6.3.2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 This plugin gives you the ability to add, edit, and delete quotes and display them randomly.
@@ -58,6 +58,9 @@ Feel free to use the widget on the help page within the plugin or from the conta
 2. Quote Master Widget
 
 == Changelog ==
+
+= 6.3.2 (May 27, 2014) =
+ * Added New Shortcode For Listing All Quotes In Category
 
 = 6.3.1 (May 20, 2014) =
  * Added Ability To Enter Source For Quote
