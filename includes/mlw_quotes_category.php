@@ -17,7 +17,7 @@ function mlw_quotes_generate_category_page(){
 	//Add New Cate Form Submitted
 	if (isset($_POST["add_cate_form"]) && $_POST["add_cate_form"] == "confirmation")
 	{
-		$mlw_quotes_cate = $_POST["category"];
+		$mlw_quotes_cate = stripslashes($_POST["category"]);
 		$mlw_quotes_query_results = $wpdb->query( $wpdb->prepare( "INSERT INTO " . $mlw_quotes_table_name . " ( category, deleted )  VALUES ( %s, %d )", $mlw_quotes_cate, 0 ) );
 		if ($mlw_quotes_query_results != false)
 		{
@@ -32,8 +32,8 @@ function mlw_quotes_generate_category_page(){
 	//Edit Cate Form Submitted
 	if (isset($_POST["edit_cate_form"]) && $_POST["edit_cate_form"] == "confirmation")
 	{
-		$mlw_quotes_edit_id = $_POST["edit_cate_id"];
-		$mlw_quotes_edit_cate = $_POST["edit_cate"];
+		$mlw_quotes_edit_id = intval($_POST["edit_cate_id"]);
+		$mlw_quotes_edit_cate = stripslashes($_POST["edit_cate"]);
 		$mlw_quotes_query_results = $wpdb->query( $wpdb->prepare( "UPDATE " . $mlw_quotes_table_name . " SET category='%s' WHERE category_id='%d'", $mlw_quotes_edit_cate, $mlw_quotes_edit_id ) );
 		if ($mlw_quotes_query_results != false)
 		{
@@ -48,7 +48,7 @@ function mlw_quotes_generate_category_page(){
 	//Delete Quote Form Submitted
 	if (isset($_POST["delete_cate_form"]) && $_POST["delete_cate_form"] == "confirmation")
 	{
-		$mlw_quotes_delete_id = $_POST["delete_cate_id"];
+		$mlw_quotes_delete_id = intval($_POST["delete_cate_id"]);
 		$mlw_quotes_query_results = $wpdb->query( $wpdb->prepare( "UPDATE " . $mlw_quotes_table_name . " SET deleted='1' WHERE category_id='%d'", $mlw_quotes_delete_id ) );
 		if ($mlw_quotes_query_results != false)
 		{
@@ -191,7 +191,7 @@ function mlw_quotes_generate_category_page(){
 			if($alternate) $alternate = "";
 			else $alternate = " class=\"alternate\"";
 			$mlw_quotes_list .= "<tr{$alternate}>";
-			$mlw_quotes_list .= "<td><span style='font-size:16px;'>" . $mlw_quotes_info->category ." </span><div><span style='color:green;font-size:12px;'><a onclick=\"editCate('".$mlw_quotes_info->category_id."','".$mlw_quotes_info->category."')\"href='#'>Edit</a> | <a onclick=\"deleteCate('".$mlw_quotes_info->category_id."')\"href='#'>Delete</a></span></div></td>";
+			$mlw_quotes_list .= "<td><span style='font-size:16px;'>" . $mlw_quotes_info->category ." </span><div><span style='color:green;font-size:12px;'><a onclick=\"editCate('".intval($mlw_quotes_info->category_id)."','".esc_js($mlw_quotes_info->category)."')\"href='#'>Edit</a> | <a onclick=\"deleteCate('".$mlw_quotes_info->category_id."')\"href='#'>Delete</a></span></div></td>";
 			$mlw_quotes_list .= "<td>[mlw_quotes cate=".$mlw_quotes_info->category_id."]</td>";
 			$mlw_quotes_list .= "<td>[mlw_quotes cate=".$mlw_quotes_info->category_id." all='yes']</td>";
 			$mlw_quotes_list .= "</tr>";

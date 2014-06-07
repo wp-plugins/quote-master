@@ -17,10 +17,10 @@ function mlw_quotes_generate_admin(){
 	//Add New Quote Form Submitted
 	if (isset($_POST["add_quote_form"]) && $_POST["add_quote_form"] == "confirmation")
 	{
-		$mlw_quotes_quote = $_POST["quote"];
-		$mlw_quotes_author = $_POST["author"];
-		$mlw_quotes_source = $_POST["source"];
-		$mlw_quotes_category_id = $_POST["category"];
+		$mlw_quotes_quote = stripslashes($_POST["quote"]);
+		$mlw_quotes_author = stripslashes($_POST["author"]);
+		$mlw_quotes_source = stripslashes($_POST["source"]);
+		$mlw_quotes_category_id = intval($_POST["category"]);
 		$mlw_quotes_category = $wpdb->get_var( $wpdb->prepare( "SELECT category FROM " . $wpdb->prefix . "mlw_quotes_cate WHERE category_id='%d'", $mlw_quotes_category_id ) );
 		$mlw_quotes_query_results = $wpdb->query( $wpdb->prepare( "INSERT INTO " . $mlw_quotes_table_name . " ( quote, author, source, category, category_id, deleted )  VALUES ( %s, %s, %s, %s, %d, %d )", $mlw_quotes_quote, $mlw_quotes_author, $mlw_quotes_source, $mlw_quotes_category, $mlw_quotes_category_id, 0 ) );
 		if ($mlw_quotes_query_results != false)
@@ -36,11 +36,11 @@ function mlw_quotes_generate_admin(){
 	//Edit Quote Form Submitted
 	if (isset($_POST["edit_quote_form"]) && $_POST["edit_quote_form"] == "confirmation")
 	{
-		$mlw_quotes_edit_id = $_POST["edit_quote_id"];
-		$mlw_quotes_edit_quote = $_POST["edit_quote"];
-		$mlw_quotes_edit_author = $_POST["edit_author"];
-		$mlw_quotes_edit_source = $_POST["edit_source"];
-		$mlw_quotes_edit_category_id = $_POST["edit_category"];
+		$mlw_quotes_edit_id = intval($_POST["edit_quote_id"]);
+		$mlw_quotes_edit_quote = stripslashes($_POST["edit_quote"]);
+		$mlw_quotes_edit_author = stripslashes($_POST["edit_author"]);
+		$mlw_quotes_edit_source = stripslashes($_POST["edit_source"]);
+		$mlw_quotes_edit_category_id = intval($_POST["edit_category"]);
 		$mlw_quotes_edit_category = $wpdb->get_var( $wpdb->prepare( "SELECT category FROM " . $wpdb->prefix . "mlw_quotes_cate WHERE category_id='%d'", $mlw_quotes_edit_category_id ) );
 		$mlw_quotes_query_results = $wpdb->query( $wpdb->prepare( "UPDATE " . $mlw_quotes_table_name . " SET quote='%s', author='%s', source='%s', category='%s', category_id='%d' WHERE quote_id='%d'", $mlw_quotes_edit_quote, $mlw_quotes_edit_author, $mlw_quotes_edit_source, $mlw_quotes_edit_category, $mlw_quotes_edit_category_id, $mlw_quotes_edit_id ) );
 		if ($mlw_quotes_query_results != false)
@@ -56,7 +56,7 @@ function mlw_quotes_generate_admin(){
 	//Delete Quote Form Submitted
 	if (isset($_POST["delete_quote_form"]) && $_POST["delete_quote_form"] == "confirmation")
 	{
-		$mlw_quotes_delete_id = $_POST["delete_quote_id"];
+		$mlw_quotes_delete_id = intval($_POST["delete_quote_id"]);
 		$mlw_quotes_query_results = $wpdb->query( $wpdb->prepare( "UPDATE " . $mlw_quotes_table_name . " SET deleted='1' WHERE quote_id='%d'", $mlw_quotes_delete_id ) );
 		if ($mlw_quotes_query_results != false)
 		{
@@ -212,7 +212,7 @@ function mlw_quotes_generate_admin(){
 			if($alternate) $alternate = "";
 			else $alternate = " class=\"alternate\"";
 			$mlw_quotes_list .= "<tr{$alternate}>";
-			$mlw_quotes_list .= "<td><span style='font-size:16px;'>" . $mlw_quotes_info->quote ." </span><div><span style='color:green;font-size:12px;'><a onclick=\"editQuote('".$mlw_quotes_info->quote_id."','".$mlw_quotes_info->quote."','".$mlw_quotes_info->author."','".$mlw_quotes_info->source."','".$mlw_quotes_info->category_id."')\"href='#'>Edit</a> | <a onclick=\"deleteQuote('".$mlw_quotes_info->quote_id."')\"href='#'>Delete</a></span></div></td>";
+			$mlw_quotes_list .= "<td><span style='font-size:16px;'>" . $mlw_quotes_info->quote ." </span><div><span style='color:green;font-size:12px;'><a onclick=\"editQuote('".intval($mlw_quotes_info->quote_id)."','".esc_js($mlw_quotes_info->quote)."','".esc_js($mlw_quotes_info->author)."','".esc_js($mlw_quotes_info->source)."','".intval($mlw_quotes_info->category_id)."')\"href='#'>Edit</a> | <a onclick=\"deleteQuote('".$mlw_quotes_info->quote_id."')\"href='#'>Delete</a></span></div></td>";
 			$mlw_quotes_list .= "<td><span style='font-size:16px;'>" . $mlw_quotes_info->author ." </span></td>";
 			$mlw_quotes_list .= "<td><span style='font-size:16px;'>" . $mlw_quotes_info->source ." </span></td>";
 			$mlw_quotes_list .= "<td><span style='font-size:16px;'>" . $mlw_quotes_info->category ." </span></td>";
